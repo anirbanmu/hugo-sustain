@@ -5,8 +5,8 @@
     font-size: 15px;
     line-height: 21px;
     color: rgb(48, 48, 48);
-    border-top: 5px solid #27a822;
-    border-bottom: 5px solid #27A822;
+    border-top: 5px solid #408AB3;
+    border-bottom: 5px solid #408AB3;
 }*/
 
 .vitae-container {
@@ -27,29 +27,30 @@ p, address {
     border-radius: 50px;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
+    margin-top: 30px;
     margin-bottom: 20px;
 }
 
 header > h1, section > h1 {
-    color: #27A822;
+    color: #408AB3;
 }
 
 header > h1 {
     line-height: 100%;
     font-size: 250%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .vitae-container > header p, .vitae-container > header address {
-    margin-bottom: 20px;
+    margin-bottom: 2px;
 }
 
 .vitae-container > header p:last-child {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 section {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 section > h1 {
@@ -59,7 +60,11 @@ section > h1 {
 }
 
 article {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+article > li {
+    margin-left: 20px;
 }
 
 article > header > h1 {
@@ -99,6 +104,10 @@ article > header address + time {
 article > header address + time::before {
     content: '—';
     margin-right: 6px;
+}
+
+article > p {
+    margin-top: 5px;
 }
 
 em {

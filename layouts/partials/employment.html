@@ -9,7 +9,7 @@
         <time>{{ .time }}</time>
       </span>
     </header>
-    <p>{{ .description }}</p>
+    {{ range .description }}<li>{{ . }}</li>{{ end }}
   </article>
   {{ end }}
 </section>

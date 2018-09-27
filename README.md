@@ -33,7 +33,7 @@
 
 From the root of your Hugo site, clone the theme into `themes/hugo-sustain-vitae` by running :
 ```
-git clone https://github.com/anirbanmu/hugo-sustain-vitae.git themes/hugo-sustain
+git clone https://github.com/anirbanmu/hugo-sustain-vitae.git themes/hugo-sustain-vitae
 ```
 
 #### Manual
@@ -119,6 +119,13 @@ Pull requests, bug fixes, and new features are welcome!
 5. Create new Pull Request on GitHub
 
 ## Changelog
+
+> jhselvik/hugo-sustain-vitae fork
+
+- Renamed some resume sections
+- Added dynamic ranges to education and employment partials
+- Personal customization the index and css files
+- Many other small adjustments
 
 > Version 1.0.1
 

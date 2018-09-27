@@ -10,9 +10,10 @@
         <time>{{ .date }}</time>
       </span>
     </header>
-    <p>
-      <em>{{ title .type }}: {{ .description }}</em>
-    </p>
+    {{ range .activities }}
+    <p>{{ .name }}</p>
+    {{ range .description }}<li>{{ . }}</li>{{ end }}
+    {{ end }}
   </article>
   {{ end }}
 </section>

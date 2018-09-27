@@ -1,25 +1,28 @@
 <header class="three columns vitae-basic">
   <img src="{{ .Site.BaseURL }}img/{{ .Site.Params.avatar }}" class="me">
   <h1>{{ .Site.Params.author }}</h1>
-  <p>
+<!--   <p>
     <a href="tel:{{ .Site.Params.vitae.tel_full }}">{{ .Site.Params.vitae.tel }}</a>
-  </p>
-  <address>
+  </p> -->
+<!--   <address>
     <a href="{{ .Site.Params.vitae.google_maps }}">
       {{ .Site.Params.vitae.address }}<br/>
       {{ .Site.Params.vitae.postcode }}<br/>
       {{ .Site.Params.vitae.city }}<br/>
       {{ .Site.Params.vitae.country }}
     </a>
-  </address>
+  </address> -->
   <p>
-    <a href="{{ .Site.Params.vitae.website_full }}">{{ .Site.Params.vitae.website }}</a><br/>
+    {{ .Site.Params.vitae.city }}
+  </p>
+  <p>
+    <a href="{{ .Site.Params.vitae.website_full }}">{{ .Site.Params.vitae.website }}</a>
   </p>
   <p>
     <a href="mailto:{{ .Site.Params.social.email }}">{{ .Site.Params.social.email }}</a>
   </p>
   <p>
-    <a href="http://github.com/{{ .Site.Params.social.github }}"><i class="fa fa-github"></i>&nbsp;Github</a> /
-    <a href="http://twitter.com/{{ .Site.Params.social.twitter }}"><i class="fa fa-twitter"></i>&nbsp;Twitter</a>
+    <a href="https://github.com/{{ .Site.Params.social.github }}"><i class="fa fa-github"></i>&nbsp;Github</a> |
+    <a href="https://www.linkedin.com/in/{{ .Site.Params.social.linkedin }}"><i class="fa fa-linkedin"></i>&nbsp;LinkedIn</a>
   </p>
 </header>
