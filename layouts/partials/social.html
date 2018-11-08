@@ -17,9 +17,14 @@
     {{ end }}
 
     {{ if .Site.Params.Social.Stackoverflow }}
-      <li><a href="https://stackoverflow.com/{{ .Site.Params.Social.Stackoverflow }}"><i class="fa fa-stack-overflow"></i></a></li>
+      <li><a href="https://stackoverflow.com/users/{{ .Site.Params.Social.Stackoverflow }}"><i class="fa fa-stack-overflow"></i></a></li>
     {{ end }}
-
+    {{ if .Site.Params.Social.Quora }}
+      <li><a href="https://quora.com/{{ .Site.Params.Social.Quora }}"><i class="fa fa-quora"></i></a></li>
+    {{ end }}
+    {{ if .Site.Params.Social.Instagram }}
+      <li><a href="https://instagram.com/{{ .Site.Params.Social.Instagram }}"><i class="fa fa-instagram"></i></a></li>
+    {{ end }}
     {{ if .Site.Params.Social.Medium }}
       <li><a href="https://medium.com/@{{ .Site.Params.Social.Medium }}"><i class="fa fa-medium"></i></a></li>
     {{ end }}

@@ -4,11 +4,7 @@
 
       <!-- Header -->
       {{ partial "header" . }}
-      {{ if (ne (strings.TrimSuffix "/projects/" .URL) .URL) }}
-        {{ .Render "projects" }}
-      {{ else if (ne (strings.TrimSuffix "/vitae/" .URL) .URL) }}
-        {{ .Render "vitae" }}
-      {{ else }}
+
       <div class="container">
         <div class="blog-post">
           <h3>
@@ -18,9 +14,9 @@
         <div class="blog-title">
           <h4>
           {{ .Date.Format "January 2, 2006" }}
-            &nbsp;&nbsp;
+            <br/><br/> &nbsp;&nbsp;
             {{ range .Params.tags }}
-            <span class="label label-success">{{ . }}</span>
+            <a href="/tags/{{ . }}"class="label label-success">{{ . }}</a>
             {{ end }}
           </h4>
         </div>
@@ -52,7 +48,7 @@
         {{ partial "disqus" . }}
         </div>
       </div>
-      {{ end }}
+
     </div>
 
     <!-- Footer -->

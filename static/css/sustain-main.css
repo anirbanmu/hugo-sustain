@@ -197,3 +197,13 @@ div.footer{
   padding-bottom: 15px;
 
 }*/
+
+/*paginator*/
+
+.pages {
+    padding: 15px 0;
+}
+
+.pages-icon {
+    padding: 0 15px;
+}

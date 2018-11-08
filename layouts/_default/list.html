@@ -2,29 +2,54 @@
   <body>
     <div id="wrap">
       <!-- Header -->
+
       {{ partial "header" . }}
+       {{ if (ne (strings.TrimSuffix "/projects/" .URL) .URL) }}
+        <!-- projects -->
+        {{ .Render "projects" }}
+      {{ else if (ne (strings.TrimSuffix "/tags/" .URL) .URL) }}
+        <!-- tags -->
+        {{ .Render "tags" }}
+      {{ else if (ne (strings.TrimSuffix "/resume/" .URL) .URL) }}
+        <!-- resume -->
+        {{ .Render "vitae" }}
+      {{ else }}
+      <!-- blog -->
+
       <div class="container">
-        <h3>Archive</h3>
+
+          <h3>{{ .Title }}</h3>
+
           <div class="panel panel-default">
             <div class="panel-body">
-            {{ range .Data.Pages.ByPublishDate.Reverse }}
-              <div class="row">
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                  <h5 style="text-align: right">
-                    {{ .Date.Format "January 2, 2006" }}
-                  </h5>
-                 </div>
-                 <div class="col-sm-8 col-md-8 col-lg-8">
-                   <h5 style="text-align: left">
-                    <strong><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></strong>
-                  </h5>
-                </div>
-              </div>
-            {{ end }}
+
+                {{ range (.Paginator 4).Pages.ByPublishDate.Reverse }}
+                  <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <h5 style="text-align: right">
+                        {{ .Date.Format "January 2, 2006" }}
+                      </h5>
+                     </div>
+                     <div class="col-sm-8 col-md-8 col-lg-8">
+                       <h5 style="text-align: left">
+                        <strong><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></strong>
+                        <br>
+                        {{ range .Params.tags }}
+                        <a href="/tags/{{ . }}"class="label label-success">{{ . }}</a>
+                        {{ end }}
+                      </h5>
+                    </div>
+                  </div>
+                {{ end }}
+
+            <!-- paginator -->
+              {{ partial "paginator" . }}
             </div>
           </div>
       </div>
+    {{ end }}
     </div>
+
     <!-- Footer -->
     {{ partial "footer" . }}
   </body>

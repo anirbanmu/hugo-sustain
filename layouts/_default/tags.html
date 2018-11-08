@@ -1,0 +1,11 @@
+<div class="container">
+
+ <h3>{{ .Title }}</h3>
+<br>
+{{ range .Data.Pages }}
+       <span style="font-size: 2rem">
+        <strong><a class="label label-success"href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></strong>
+      </span> &emsp;
+{{ end }}
+
+</div>
