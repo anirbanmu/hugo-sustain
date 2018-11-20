@@ -35,7 +35,7 @@
                         <strong><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></strong>
                         <br>
                         {{ range .Params.tags }}
-                        <a href="/tags/{{ . }}"class="label label-success">{{ . }}</a>
+                        <a href="/tags/{{ . }}"class="label">{{ . }}</a>
                         {{ end }}
                       </h5>
                     </div>

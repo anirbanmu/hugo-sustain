@@ -4,7 +4,7 @@
 <br>
 {{ range .Data.Pages }}
        <span style="font-size: 2rem">
-        <strong><a class="label label-success"href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></strong>
+        <strong><a class="label"href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></strong>
       </span> &emsp;
 {{ end }}
 

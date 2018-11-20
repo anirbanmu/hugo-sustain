@@ -8,12 +8,14 @@
     <a href="{{ .Site.Params.vitae.google_maps }}">
       {{ .Site.Params.vitae.address }}<br/>
       {{ .Site.Params.vitae.postcode }}<br/>
-      {{ .Site.Params.vitae.city }}<br/>
-      {{ .Site.Params.vitae.country }}
-    </a>
+      {{ .Site.Params.vitae.city }}, {{ .Site.Params.vitae.country }}
+    </a> <br/>
   </address>
   <p>
-    <a href="{{ .Site.Params.vitae.website_full }}">{{ .Site.Params.vitae.website }}</a><br/>
+    <a href="{{ .Site.BaseURL}}/{{.Site.Params.vitae.resume_path}}">download resume <i class="fa fa-download"></i></a>
+  </p>
+  <p>
+    <a href="{{ .Site.Params.vitae.website_full }}">{{ .Site.Params.vitae.website }}</a>
   </p>
   <p>
     <a href="mailto:{{ .Site.Params.social.email }}">{{ .Site.Params.social.email }}</a>
