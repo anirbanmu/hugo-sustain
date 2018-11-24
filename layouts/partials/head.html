@@ -5,8 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="{{ .Site.Params.Author }}" />
-    {{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
+    <meta name="keywords" content='{{ with .Keywords }}{{ delimit . ", " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}{{ with .Params.Tags }}{{ delimit . ", " }}{{ end }}'>
+
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="{{ if $isHomePage := eq .Title .Site.Title }}{{ .Site.Params.description }}{{ else if .Description}}{{ .Description }} {{ else if .IsPage}}{{ .Summary }}{{ end }}" >
+
     <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.BaseURL }}img/favicon.ico">
+    {{ partial "seo_schema" . }}
     <title>
     {{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" -}}
     {{- if eq $url "/" -}}
