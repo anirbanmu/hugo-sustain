@@ -172,7 +172,7 @@ a:hover {
 }
 .label {
   display: inline-block;
-  margin-bottom: 5px;
+  margin: 0.2rem;
   background: var(--THEME-color)
 }
 .related-posts h4 {
@@ -198,7 +198,7 @@ a:hover {
 	color: #6b6b6b;
 }
 div.footer{
-  border-bottom: 5px solid var(--THEME-color);;
+  border-bottom: 5px solid var(--THEME-color);
 }
 /* Set the fixed height of the footer here */
 /*.footer {
@@ -215,4 +215,9 @@ div.footer{
 
 .pages-icon {
     padding: 0 15px;
+}
+
+/*tags cloud*/
+.mytags{
+border:   1px solid var(--THEME-color);
 }

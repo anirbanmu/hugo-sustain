@@ -1,8 +1,8 @@
 {{ partial "head" . }}
   <body>
+
     <div id="wrap">
       <!-- Header -->
-
       {{ partial "header" . }}
        {{ if (ne (strings.TrimSuffix "/projects/" .URL) .URL) }}
         <!-- projects -->
@@ -19,34 +19,47 @@
       <div class="container">
 
           <h3>{{ .Title }}</h3>
+          <div class="row">
+            <div class="col-sm-8 pull-left">
 
-          <div class="panel panel-default">
-            <div class="panel-body">
+                  <div class="panel panel-default">
+                  <div class="panel-body" style="float: left">
 
-                {{ range (.Paginator 4).Pages.ByPublishDate.Reverse }}
-                  <div class="row">
-                    <div class="col-sm-4 col-md-4 col-lg-4">
-                      <h5 style="text-align: right">
-                        {{ .Date.Format "January 2, 2006" }}
-                      </h5>
-                     </div>
-                     <div class="col-sm-8 col-md-8 col-lg-8">
-                       <h5 style="text-align: left">
-                        <strong><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></strong>
-                        <br>
-                        {{ range .Params.tags }}
-                        <a href="/tags/{{ . }}"class="label">{{ . }}</a>
-                        {{ end }}
-                      </h5>
-                    </div>
-                  </div>
-                {{ end }}
+                    {{ range (.Paginator 4).Pages.ByPublishDate.Reverse }}
+                      <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                          <h5 style="text-align: right">
+                            {{ .Date.Format "January 2, 2006" }}
+                          </h5>
+                         </div>
+                         <div class="col-sm-8 col-md-8 col-lg-8">
+                           <h5 style="text-align: left">
+                            <strong><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></strong>
+                            <br>
+                            {{ range .Params.tags }}
+                            <a href="/tags/{{ . }}"class="label">{{ . }}</a>
+                            {{ end }}
+                          </h5>
+                        </div>
+                      </div>
+                    {{ end }}
+                <!-- paginator -->
 
-            <!-- paginator -->
-              {{ partial "paginator" . }}
+                </div>
+              </div>
             </div>
+
+            <div class="col-sm-4 pull-right mytags">
+              <h3>Tags</h3>
+              {{partial "mytags" . }}
+            </div>
+
+
           </div>
+
       </div>
+      {{ partial "paginator" . }}
+
     {{ end }}
     </div>
 

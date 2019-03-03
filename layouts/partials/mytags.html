@@ -1,8 +1,3 @@
-<!-- <div class="container">
-
- <h3>{{ .Title }}</h3>
-<br>
-
 {{ if not (eq (len $.Site.Taxonomies.tags) 0) }}
     {{ $fontUnit := "%" }}
     {{ $largestFontSize := 250}}
@@ -20,14 +15,9 @@
             {{ $count := len $taxonomy.Pages }}
             {{ $weigth := div (sub (math.Log $count) (math.Log $min)) (sub (math.Log $max) (math.Log $min)) }}
             {{ $currentFontSize := (add $smallestFontSize (mul (sub $largestFontSize $smallestFontSize) $weigth) ) }}
-
+            <!--Current font size: {{$currentFontSize}}-->
             <a class="label" href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" style="font-size:{{$currentFontSize}}{{$fontUnit}}">{{ $name }}</a>
         {{ end }}
     </div>
+
 {{ end }}
-
-
-</div> -->
-
-<!-- not yet done!!! -->
-<!-- listing all tags with count if tags cannot be accomodated in tags cloud-->
