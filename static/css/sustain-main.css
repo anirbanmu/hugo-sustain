@@ -92,7 +92,7 @@ html, body {
 /* Custom page CSS */
 .container {
   width: auto;
-  max-width: 800px;
+  max-width: 900px;
   text-align: center;
 }
 .container .text-muted {
@@ -220,4 +220,17 @@ div.footer{
 /*tags cloud*/
 .mytags{
 border:   1px solid var(--THEME-color);
+}
+
+/*for tags sticking on right wall*/
+@media (max-width: 900px) {
+
+
+  .col-xs-9{
+    margin-left:-1rem;
+  }
+  .col-xs-3{
+        margin-right:1rem;
+  }
+
 }
