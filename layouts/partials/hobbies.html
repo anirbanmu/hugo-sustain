@@ -1,6 +1,8 @@
-<section class="thirteen columns">
-  <h1>{{ .Site.Data.hobbies.name }}</h1>
-  <article>
-    <ul><li>{{ delimit .Site.Data.hobbies.source "<li>" }}</ul>
-  </article>
-</section>
+{{ with .Site.Data.hobbies }}
+    <section class="thirteen columns">
+      <h1>{{ .name }}</h1>
+      <article>
+        <p>{{ delimit .source ", " }}</p>
+      </article>
+    </section>
+{{ end }}

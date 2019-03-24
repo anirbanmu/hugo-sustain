@@ -6,10 +6,11 @@
   </p>
   <address>
     <a href="{{ .Site.Params.vitae.google_maps }}">
-      {{ .Site.Params.vitae.address }}<br/>
-      {{ .Site.Params.vitae.postcode }}<br/>
-      {{ .Site.Params.vitae.city }}, {{ .Site.Params.vitae.country }}
-    </a> <br/>
+      <div>{{ .Site.Params.vitae.address }}</div>
+      <div>{{ .Site.Params.vitae.postcode }}</div>
+      <div>{{ .Site.Params.vitae.city }}</div>
+      <div>{{ .Site.Params.vitae.country }}</div>
+    </a>
   </address>
   <p>
     <a href="{{ .Site.BaseURL}}/{{.Site.Params.vitae.resume_path}}">Complete Resume <i class="fa fa-download"></i></a>
