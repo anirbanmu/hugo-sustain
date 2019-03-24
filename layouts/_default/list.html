@@ -14,14 +14,14 @@
         <!-- resume -->
         {{ .Render "vitae" }}
       {{ else }}
-      <!-- blog -->
+      <!-- posts/ and other list templates-->
 
       <div class="container">
 
           <h3 class="row text-center">{{ .Title }}</h3>
 
           <div class="row">
-            <div class="col-xs-9">
+            <div class="col-xs-12 col-sm-9">
 
                   <div class="panel panel-default">
                   <div class="panel-body" style="float: left">
@@ -35,10 +35,16 @@
                          </div>
                          <div class="col-sm-8 col-md-8 col-lg-8">
                            <h5 style="text-align: left">
-                            <strong><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></strong>
+                            <strong>
+                              {{if isset .Params "affiliatelink"}}
+                              <a href="{{ .Params.affiliatelink}}" target="_blank">{{ .Title | markdownify}}</a><span>&#8599;</span>
+                              {{else}}
+                              <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+                              {{end}}
+                            </strong>
                             <br>
                             {{ range .Params.tags }}
-                            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="label">{{ . }}</a>
+                            <a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}' class="label">{{ . }}</a>
                             {{ end }}
                           </h5>
                         </div>
@@ -50,7 +56,7 @@
               </div>
             </div>
 
-            <div class="col-xs-3 mytags text-center">
+            <div class="hidden-xs col-sm-3 mytags text-center">
               <h4 div="row">Tags</h4>
               <div class="row">
               {{partial "mytags" . }}
@@ -62,10 +68,18 @@
 
       </div>
       {{ partial "paginator" . }}
+      <br><br>
+
+
+      <div class="hidden-sm hidden-md hidden-lg col-xs-12 mytags text-center">
+              <h4 div="row">Tags</h4>
+              <div class="row">
+              {{partial "mytags" . }}
+              </div>
+      </div>
 
     {{ end }}
     </div>
-
     <!-- Footer -->
     {{ partial "footer" . }}
   </body>
