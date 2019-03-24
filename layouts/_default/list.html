@@ -10,6 +10,9 @@
       {{ else if (ne (strings.TrimSuffix "/tags/" .URL) .URL) }}
         <!-- tags -->
         {{ .Render "tags" }}
+      {{ else if (ne (strings.TrimSuffix "/categories/" .URL) .URL) }}
+        <!-- tags -->
+        {{ .Render "categories" }}
       {{ else if (ne (strings.TrimSuffix "/resume/" .URL) .URL) }}
         <!-- resume -->
         {{ .Render "vitae" }}
@@ -70,14 +73,14 @@
       {{ partial "paginator" . }}
       <br><br>
 
-
-      <div class="hidden-sm hidden-md hidden-lg col-xs-12 mytags text-center">
-              <h4 div="row">Tags</h4>
-              <div class="row">
-              {{partial "mytags" . }}
-              </div>
+      <div class="container hidden-sm hidden-md hidden-lg">
+      <div class=" col-xs-12 mytags text-center">
+          <h4 div="row">Tags</h4>
+          <div class="row">
+          {{partial "mytags" . }}
+          </div>
       </div>
-
+      </div>
     {{ end }}
     </div>
     <!-- Footer -->
