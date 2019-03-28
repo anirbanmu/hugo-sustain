@@ -12,6 +12,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:description" content="{{ if $isHomePage := eq .Title .Site.Title }}{{ .Site.Params.description }}{{ else if .Description}}{{ .Description }} {{ else if .IsPage}}{{ .Summary }}{{ end }}" >
 
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#009688">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#009688">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#009688">
+
+
     <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.BaseURL }}img/favicon.ico">
     {{ partial "seo_schema" . }}
     <title>
@@ -28,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/vitae-skeleton.css" />
     <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/vitae-layout.css" />
     <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/sustain-main.css" />
+
 
     {{- if .Params.highlight -}}
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/tomorrow.min.css">

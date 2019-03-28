@@ -13,7 +13,7 @@ html, body {
   background-color: #fff;
   font-family: 'Source Sans Pro', sans-serif;
   /* The html and body elements cannot have any padding or margin. */
-  border-top: 3px solid var(--THEME-color);
+  /*border-top: 3px solid var(--THEME-color);*/
 }
 
 /* Wrapper for page content to push down footer */
