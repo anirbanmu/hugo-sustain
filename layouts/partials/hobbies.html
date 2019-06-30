@@ -2,7 +2,12 @@
     <section class="thirteen columns">
       <h1>{{ .name }}</h1>
       <article>
-        <p>{{ delimit .source ", " }}</p>
+        <ul>
+          {{ range .source}}
+          <li>{{ . }}</li>
+          {{end}}
+        </ul>
+        <!-- <p>{{ delimit .source ", " }}</p> -->
       </article>
     </section>
 {{ end }}
