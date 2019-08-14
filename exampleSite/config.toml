@@ -54,4 +54,4 @@ theme = "hugo-sustain-vitae"
   name = "resume"
   identifier = "resume"
   weight = 300
-  url = "/vitae/"
+  url = "/resume/"

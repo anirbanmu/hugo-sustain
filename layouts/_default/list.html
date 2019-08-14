@@ -4,16 +4,16 @@
     <div id="wrap">
       <!-- Header -->
       {{ partial "header" . }}
-       {{ if (ne (strings.TrimSuffix "/projects/" .URL) .URL) }}
+       {{ if (ne (strings.TrimSuffix "/projects/" .RelPermalink) .RelPermalink) }}
         <!-- projects -->
-        {{ .Render "projects" }}
-      {{ else if (ne (strings.TrimSuffix "/tags/" .URL) .URL) }}
+        {{ .Render "projects_template" }}
+      {{ else if (ne (strings.TrimSuffix "/tags/" .RelPermalink) .RelPermalink) }}
         <!-- tags -->
         {{ .Render "tags" }}
-      {{ else if (ne (strings.TrimSuffix "/categories/" .URL) .URL) }}
+      {{ else if (ne (strings.TrimSuffix "/categories/" .RelPermalink) .RelPermalink) }}
         <!-- tags -->
         {{ .Render "categories" }}
-      {{ else if (ne (strings.TrimSuffix "/resume/" .URL) .URL) }}
+      {{ else if (ne (strings.TrimSuffix "/resume/" .RelPermalink) .RelPermalink) }}
         <!-- resume -->
         {{ .Render "vitae" }}
       {{ else }}
