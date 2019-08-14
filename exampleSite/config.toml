@@ -7,6 +7,12 @@ disqusShortname = ""
 googleAnalytics = ""
 theme = "hugo-sustain-vitae"
 
+
+# https://gohugo.io/content-management/taxonomies/
+#generate only "tags" & not "categories" taxonomy
+#[taxonomies]
+#  tag = "tags"
+
 [permalinks]
   post = "/:year/:month/:day/:slug"
 
