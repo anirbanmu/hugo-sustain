@@ -9,10 +9,10 @@
         {{ .Render "projects_template" }}
       {{ else if (ne (strings.TrimSuffix "/tags/" .RelPermalink) .RelPermalink) }}
         <!-- tags -->
-        {{ .Render "tags" }}
+        {{ .Render "tags_template" }}
       {{ else if (ne (strings.TrimSuffix "/categories/" .RelPermalink) .RelPermalink) }}
         <!-- tags -->
-        {{ .Render "categories" }}
+        {{ .Render "categories_template" }}
       {{ else if (ne (strings.TrimSuffix "/resume/" .RelPermalink) .RelPermalink) }}
         <!-- resume -->
         {{ .Render "vitae" }}
