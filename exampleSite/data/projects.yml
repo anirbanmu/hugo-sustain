@@ -1,41 +1,41 @@
 name: Projects
 source:
   - name : project 1
-    link : #
-    icon: fa fa-github
+    link : ./#
+    icon: fab fa-github
     description: Ei viderer tacimates pro, quem assum ea nam. Veritus omnesque eam te. Et natum mucius tamquam vel, ea dolorem volumus deterruisset nec. Graeci mentitum sea an, eu prima elaboraret est.
 
 
   - name : project 2
-    link : #
-    icon: fa fa-github
+    link : ./#
+    icon: fab fa-github
     description: An eripuit phaedrum qui, nec facer splendide ex, vel ea assum facilisi convenire. Te his neglegentur consectetuer.
 
 
   - name : project 3
-    link : #
-    icon: fa fa-github
+    link : ./#
+    icon: fab fa-github
     description: An alii quot tantas eum, doming platonem persecuti mea et, vim perpetua cotidieque delicatissimi in.
-  
+
   - name : project 4
-    link : #
-    icon: fa fa-globe
+    link : ./#
+    icon: fas fa-globe
     description: Vim an case vidit sententiae, est at euismod laboramus efficiantur. Ei sit brute lorem, ea eam timeam viderer aliquid, cu integre omittam moderatius quo.
 
 
   - name : project 5
-    link : #
-    icon: fa fa-globe
+    link : ./#
+    icon: fas fa-globe
     description: Dicta causae meliore ex vel, in vix erant integre petentium. Vix ei nisl scripta recusabo, eam doming blandit facilisis.
 
 
   - name : project 6
-    link : #
-    icon: fa fa-github
+    link : ./#
+    icon: fab fa-github
     description: Inermis recusabo elaboraret mea et, dicat neglegentur vim te. Nec et sanctus scriptorem, usu ex sapientem gubergren. Tamquam admodum ei usu.
 
 
   - name : project 7
-    link : #
-    icon: fa fa-github
+    link : ./#
+    icon: fab fa-github
     description: Essent putant indoctum sed in, reprimique persequeris neglegentur te quo. Nam rebum tractatos partiendo at, debet ubique oporteat ut his.
