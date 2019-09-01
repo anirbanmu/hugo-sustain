@@ -270,3 +270,13 @@ border:   1px solid var(--THEME-color);
 .image_placeholder{
   display: block;
 }
+
+/* long code wrap  */
+
+pre code {
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: block;
+    white-space: pre;
+    word-wrap: normal;
+}
