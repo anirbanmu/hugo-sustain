@@ -6,7 +6,10 @@ disqusShortname = ""
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = ""
 theme = "hugo-sustain-vitae"
-
+canonifyURLs = true
+enableRobotsTXT = true
+enableEmoji = true
+pygmentsCodeFences = true
 
 # https://gohugo.io/content-management/taxonomies/
 #generate only "tags" & not "categories" taxonomy
@@ -14,7 +17,7 @@ theme = "hugo-sustain-vitae"
 #  tag = "tags"
 
 [permalinks]
-  post = "/:year/:month/:day/:slug"
+  blog = "/:year/:month/:day/:slug"
 
 [params]
   avatar = "profile.png"
