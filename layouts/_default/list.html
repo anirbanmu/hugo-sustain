@@ -50,6 +50,7 @@
                             <a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}' class="label">{{ . }}</a>
                             {{ end }}
                           </h5>
+                            {{ .Summary }}.... <a href="{{ .RelPermalink }}">Read More</a>
                         </div>
                       </div>
                     {{ end }}
