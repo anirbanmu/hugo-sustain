@@ -14,8 +14,8 @@ jQuery(document).ready(function(e) {
 
     let lazyloadImages;
 
-    // if ("IntersectionObserver" in window) {
-    if (false) {
+    if ("IntersectionObserver" in window) {
+
         lazyloadImages = document.querySelectorAll(".lazy");
         let imageObserver = new IntersectionObserver(function (entries, observer) {
 
