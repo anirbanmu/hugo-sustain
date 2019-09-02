@@ -13,7 +13,13 @@
         </div>
         <div class="blog-title">
           <h4>
-          {{ .Date.Format "January 2, 2006" }}
+             <span class="text-muted"> {{ .Date.Format "Jan 2, 2006" }}
+
+              {{ if isset .Params "minutes" }}
+              &#183; {{ .Params.minutes }} min read
+
+              {{end}}
+              </span>
             <br/><br/> &nbsp;&nbsp;
             {{ range .Params.tags }}
             <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="label">{{ . }}</a>
