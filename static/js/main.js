@@ -12,17 +12,18 @@ jQuery(document).ready(function(e) {
 
     /**  lazy image loading  */
 
-    var lazyloadImages;
+    let lazyloadImages;
 
-    if ("IntersectionObserver" in window) {
+    // if ("IntersectionObserver" in window) {
+    if (false) {
         lazyloadImages = document.querySelectorAll(".lazy");
-        var imageObserver = new IntersectionObserver(function (entries, observer) {
+        let imageObserver = new IntersectionObserver(function (entries, observer) {
 
             entries.forEach(function (entry) {
 
 
                 let image = entry.target;
-                var smallImg = new Image();
+                let smallImg = new Image();
                 smallImg.src = image.src;
                 smallImg.onload = function () {
                     image.classList.add('loaded');
@@ -49,22 +50,45 @@ jQuery(document).ready(function(e) {
         });
     } else {
         // fall back to older browsers
-        var lazyloadThrottleTimeout;
-        lazyloadImages = document.querySelectorAll(".lazy");
+        let lazyloadThrottleTimeout;
 
+        lazyloadImages = e(".lazy");
         function lazyload() {
             if (lazyloadThrottleTimeout) {
                 clearTimeout(lazyloadThrottleTimeout);
             }
 
             lazyloadThrottleTimeout = setTimeout(function () {
-                var scrollTop = window.pageYOffset;
-                lazyloadImages.forEach(function (img) {
-                    if (img.offsetTop < (window.innerHeight + scrollTop)) {
-                        img.src = img.dataset.src;
+                let scrollTop = window.pageYOffset;
+
+                lazyloadImages.each(function(index,img){
+                    if(!img)
+                        return;
+
+                    let smallImg = new Image();
+                    smallImg.src = img.src;
+                    smallImg.onload = function () {
+                        img.classList.add('loaded');
+                    };
+
+                    if (e(img).offset().top < (window.innerHeight + scrollTop)) {
+
+                        let ogImage = new Image();
+
+                        ogImage.src = img.dataset.src;
+                        ogImage.onload = function () {
+                            ogImage.classList.add("loaded")
+                        }
+
+                        img.parentNode.appendChild(ogImage);
                         img.classList.remove('lazy');
+                        lazyloadImages.splice(index, 1)
                     }
+
+
+
                 });
+
                 if (lazyloadImages.length == 0) {
                     document.removeEventListener("scroll", lazyload);
                     window.removeEventListener("resize", lazyload);
@@ -72,10 +96,10 @@ jQuery(document).ready(function(e) {
                 }
             }, 20);
         }
-
         document.addEventListener("scroll", lazyload);
         window.addEventListener("resize", lazyload);
         window.addEventListener("orientationChange", lazyload);
+        lazyload();
     }
 
 });
