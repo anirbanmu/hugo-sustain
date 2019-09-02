@@ -30,6 +30,7 @@
           <div class="panel-body">
             <div class="blogpost">
               {{ .Content }}
+              {{ if gt (len (where .Site.Pages.ByDate.Reverse ".Params.tags" "intersect" .Params.tags)) 1}}
               <hr>
               <div class="related-posts">
                 <h5>Related Posts</h5>
@@ -48,6 +49,7 @@
                   </div>
                 {{ end }}
               </div>
+              {{end}}
             </div>
           </div>
           <hr>
