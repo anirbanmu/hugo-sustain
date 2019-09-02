@@ -14,11 +14,14 @@
         <div class="blog-title">
           <h4>
              <span class="text-muted"> {{ .Date.Format "Jan 2, 2006" }}
-
+              &#183;
               {{ if isset .Params "minutes" }}
-              &#183; {{ .Params.minutes }} min read
-
+                {{ .Params.minutes }}
+              {{else}}
+                {{ math.Ceil (div .WordCount 200.0) }}
+                <!-- Average person reads 200 words per minute -->
               {{end}}
+              min read
               </span>
             <br/><br/> &nbsp;&nbsp;
             {{ range .Params.tags }}
