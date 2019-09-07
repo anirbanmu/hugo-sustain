@@ -10,6 +10,7 @@ canonifyURLs = true
 enableRobotsTXT = true
 enableEmoji = true
 pygmentsCodeFences = true
+# Available styles :- https://xyproto.github.io/splash/docs/
 pygmentsStyle = "dracula"
 
 # https://gohugo.io/content-management/taxonomies/
