@@ -10,6 +10,7 @@ canonifyURLs = true
 enableRobotsTXT = true
 enableEmoji = true
 pygmentsCodeFences = true
+pygmentsStyle = "dracula"
 
 # https://gohugo.io/content-management/taxonomies/
 #generate only "tags" & not "categories" taxonomy

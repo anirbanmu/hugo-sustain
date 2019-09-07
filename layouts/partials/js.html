@@ -9,8 +9,3 @@
 <script src="{{ .Site.BaseURL }}js/main.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="{{ .Site.BaseURL }}js/ie10-viewport-bug-workaround.js"></script>
-{{- if .Params.highlight -}}
-{{ "<!-- Syntax highlighting -->" | safeHTML }}
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-{{ end }}
