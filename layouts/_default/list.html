@@ -50,8 +50,12 @@
                             <a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}' class="label">{{ . }}</a>
                             {{ end }}
                           </h5>
+                            {{if isset .Params "affiliatelink"}}
+                              {{else}}
+
                             {{ .Summary }}.... <a href="{{ .RelPermalink }}">Read More</a>
-                        </div>
+                            {{end}}
+                          </div>
                       </div>
                     {{ end }}
                 <!-- paginator -->
