@@ -4,7 +4,7 @@
 {{ $width := or ( .Get "width") (printf "%dpx" ($image.Width)) }}
 {{ $height := or ( .Get "height") (printf "%dpx" ($image.Height)) }}
 
-<div class="image_placeholder" style="max-width: {{$width}}" style="max-heigth: {{$height}}">
+<div class="image_placeholder" style="max-width: {{$width}}; max-height: {{$height}}">
 <div class="image_placeholder_inside">
   <img src="{{ $placeholder.Permalink }}" data-src="{{ $image.Permalink }}" class="img-small lazy">
   <div style="padding-bottom: {{ div (mul $image.Height 100.0) $image.Width }}%;"></div>
