@@ -1,10 +1,19 @@
+:root{
+
+    --THEME-color:#009688;
+    /*--THEME-color:#01579b;*/
+    --LINK-color:#00796B;
+    /*--LINK-color:#FF9800;*/
+}
+
+
 /* Main page with stikky-footer */
 html, body {
   height: 100%;
   background-color: #fff;
   font-family: 'Source Sans Pro', sans-serif;
   /* The html and body elements cannot have any padding or margin. */
-  border-top: 3px solid #27A822;
+  /*border-top: 3px solid var(--THEME-color);*/
 }
 
 /* Wrapper for page content to push down footer */
@@ -84,17 +93,17 @@ html, body {
 /* Custom page CSS */
 .container {
   width: auto;
-  max-width: 800px;
+  max-width: 900px;
   text-align: center;
 }
 .container .text-muted {
   margin: 20px 0;
 }
 a {
-  color: #27A822;
+  color: var(--LINK-color);
 }
 a:hover {
-  color: #267723;
+  color: var(--LINK-color);
 }
 .container p img, .img-responsive {
   display: block;
@@ -116,10 +125,10 @@ a:hover {
   font-size: 15px;
 }
 .panel-default h4 a, h5 a {
-  color: #27A822;
+  color: var(--LINK-color);
 }
 .panel-default h4 a:hover, h5 a:hover {
-  color: #267723;
+  color: var(--LINK-color);
 }
 .panel{
   border-style: none;
@@ -164,7 +173,8 @@ a:hover {
 }
 .label {
   display: inline-block;
-  margin-bottom: 5px;
+  margin: 0.2rem;
+  background: var(--THEME-color)
 }
 .related-posts h4 {
   text-align: center;
@@ -189,7 +199,7 @@ a:hover {
 	color: #6b6b6b;
 }
 div.footer{
-  border-bottom: 5px solid #27A822;;
+  border-bottom: 5px solid var(--THEME-color);
 }
 /* Set the fixed height of the footer here */
 /*.footer {
@@ -197,3 +207,76 @@ div.footer{
   padding-bottom: 15px;
 
 }*/
+
+/*paginator*/
+
+.pages {
+    padding: 15px 0;
+}
+
+.pages-icon {
+    padding: 0 15px;
+}
+
+/*tags cloud*/
+.mytags{
+border:   1px solid var(--THEME-color);
+}
+
+/*for tags sticking on right wall*/
+@media (max-width: 900px) {
+
+
+  .col-xs-9{
+    margin-left:-1rem;
+  }
+  .col-xs-3{
+        margin-right:1rem;
+  }
+
+}
+
+
+
+/***medium like image loading***/
+
+.image_placeholder_inside {
+  background-color: #f6f6f6;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.image_placeholder_inside img {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 1s linear;
+}
+
+.img-small {
+  filter: blur(50px);
+  /* this is needed so Safari keeps sharp edges */
+  transform: scale(1);
+}
+
+.image_placeholder_inside img.loaded {
+  opacity: 1;
+}
+
+.image_placeholder{
+  display: block;
+}
+
+/* long code wrap  */
+
+pre code {
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: block;
+    white-space: pre;
+    word-wrap: normal;
+}

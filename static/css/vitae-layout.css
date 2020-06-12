@@ -6,7 +6,7 @@
     line-height: 21px;
     color: rgb(48, 48, 48);
     border-top: 5px solid #27a822;
-    border-bottom: 5px solid #27A822;
+    border-bottom: 5px solid var(--LINK-color);
 }*/
 
 .vitae-container {
@@ -31,7 +31,7 @@ p, address {
 }
 
 header > h1, section > h1 {
-    color: #27A822;
+    color: var(--LINK-color);
 }
 
 header > h1 {

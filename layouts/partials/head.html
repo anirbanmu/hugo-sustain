@@ -5,8 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="{{ .Site.Params.Author }}" />
-    {{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
+    <meta name="keywords" content='{{ with .Keywords }}{{ delimit . ", " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}, {{ with .Params.Tags }}{{ delimit . ", " }}{{ end }}'>
+
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="{{ if $isHomePage := eq .Title .Site.Title }}{{ .Site.Params.description }}{{ else if .Description}}{{ .Description }} {{ else if .IsPage}}{{ .Summary }}{{ end }}" >
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#009688">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#009688">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#009688">
+
+
     <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.BaseURL }}img/favicon.ico">
+    {{ partial "seo_schema" . }}
     <title>
     {{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" -}}
     {{- if eq $url "/" -}}
@@ -22,10 +37,11 @@
     <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/vitae-layout.css" />
     <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/sustain-main.css" />
 
+
     {{- if .Params.highlight -}}
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/tomorrow.min.css">
     {{ end }}
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
     {{ range .Site.Params.custom_css }}
     <link rel="stylesheet" href="{{ $.Site.BaseURL}}{{ . }}">
@@ -36,4 +52,4 @@
 		<![endif]-->` | safeHTML }}
 
     {{ template "_internal/google_analytics.html" . }}
-  </head>
+</head>

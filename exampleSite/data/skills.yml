@@ -1,11 +1,37 @@
-name: Programming Skills
-title: Software engineering & web development
-source:
-  - name: [C/C++, Objective-C]
-    stars: 5
+name: Skills
 
-  - name: [Java, Python, PHP, Git]
-    stars: 4
+domains:
+  - title: Application/Web development languages
+    source:
+      - name:
+          - Java
+          - Javascript
+        stars: 5
+      - name:
+          - C/C++
+          - Python
+          - SQL
+          - C#
+          - PHP
+        stars: 4
+      - name:
+          - HTML/CSS3
+        stars: 3
 
-  - name: [HTML/CSS3, Javascript]
-    stars: 3
+  - title: Frameworks and Tools
+    source:
+      - name:
+          - Spring core
+          - Spring WebMVC
+          - Spring Data
+          - Spring Boot
+          - Hibernate
+        stars: 5
+      - name:
+          - Angular v>=2
+          - Git
+        stars: 4
+      - name:
+          - Scikit learn
+          - Numpy
+        stars: 3

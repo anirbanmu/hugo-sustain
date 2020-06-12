@@ -4,11 +4,7 @@
 
       <!-- Header -->
       {{ partial "header" . }}
-      {{ if (ne (strings.TrimSuffix "/projects/" .URL) .URL) }}
-        {{ .Render "projects" }}
-      {{ else if (ne (strings.TrimSuffix "/vitae/" .URL) .URL) }}
-        {{ .Render "vitae" }}
-      {{ else }}
+
       <div class="container">
         <div class="blog-post">
           <h3>
@@ -17,10 +13,19 @@
         </div>
         <div class="blog-title">
           <h4>
-          {{ .Date.Format "January 2, 2006" }}
-            &nbsp;&nbsp;
+             <span class="text-muted"> {{ .Date.Format "Jan 2, 2006" }}
+              &#183;
+              {{ if isset .Params "minutes" }}
+                {{ .Params.minutes }}
+              {{else}}
+                {{ math.Ceil (div .WordCount 200.0) }}
+                <!-- Average person reads 200 words per minute -->
+              {{end}}
+              min read
+              </span>
+            <br/><br/> &nbsp;&nbsp;
             {{ range .Params.tags }}
-            <span class="label label-success">{{ . }}</span>
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="label">{{ . }}</a>
             {{ end }}
           </h4>
         </div>
@@ -28,6 +33,7 @@
           <div class="panel-body">
             <div class="blogpost">
               {{ .Content }}
+              {{ if gt (len (where .Site.Pages.ByDate.Reverse ".Params.tags" "intersect" .Params.tags)) 1}}
               <hr>
               <div class="related-posts">
                 <h5>Related Posts</h5>
@@ -46,13 +52,14 @@
                   </div>
                 {{ end }}
               </div>
+              {{end}}
             </div>
           </div>
           <hr>
         {{ partial "disqus" . }}
         </div>
       </div>
-      {{ end }}
+
     </div>
 
     <!-- Footer -->

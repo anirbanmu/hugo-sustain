@@ -6,10 +6,12 @@
       {{ range $i, $el := .Site.Data.projects.source }}
         <h5>
           <i class="{{ .icon }}"></i>&nbsp;&nbsp;
-          <strong><a href="#">Project {{ add $i 1 }}</a></strong>&nbsp;-&nbsp;{{ $el.description }}
+          <strong><a href="{{ $el.link }}">{{ $el.name }}</a></strong>&nbsp;-&nbsp;{{ $el.description }}
         </h5>
       {{ end }}
       </div>
     </div>
+    Checkout a complete list of projects (completed/ongoing) @ my <a href="
+    https://github.com/{{ .Site.Params.Social.Github}}?tab=repositories">Github</a>.
   </div>
 </section>

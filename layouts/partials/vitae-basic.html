@@ -1,25 +1,51 @@
 <header class="three columns vitae-basic">
   <img src="{{ .Site.BaseURL }}img/{{ .Site.Params.avatar }}" class="me">
   <h1>{{ .Site.Params.author }}</h1>
+
+  {{ if .Site.Params.vitae.tel}}
   <p>
     <a href="tel:{{ .Site.Params.vitae.tel_full }}">{{ .Site.Params.vitae.tel }}</a>
   </p>
+  {{end}}
+
   <address>
+    {{ if .Site.Params.vitae.google_maps}}
     <a href="{{ .Site.Params.vitae.google_maps }}">
-      <div>{{ .Site.Params.vitae.address }}</div>
-      <div>{{ .Site.Params.vitae.postcode }}</div>
-      <div>{{ .Site.Params.vitae.city }}</div>
-      <div>{{ .Site.Params.vitae.country }}</div>
-    </a>
+      </a>
+      {{ end }}
+      {{ if .Site.Params.vitae.address}}
+      <span>{{ .Site.Params.vitae.address }} , </span>
+      {{ end }}
+      {{ if .Site.Params.vitae.postcode}}
+      <span>{{ .Site.Params.vitae.postcode }} , </span>
+      {{ end }}
+      {{ if .Site.Params.vitae.city}}
+      <span>{{ .Site.Params.vitae.city }} , </span>
+      {{ end }}
+      {{ if .Site.Params.vitae.country}}
+      <span>{{ .Site.Params.vitae.country }}</span>
+      {{ end }}
   </address>
+  {{ if .Site.Params.vitae.resume_path}}
   <p>
-    <a href="{{ .Site.Params.vitae.website_full }}">{{ .Site.Params.vitae.website }}</a><br/>
+    <a href="{{ .Site.BaseURL}}/{{.Site.Params.vitae.resume_path}}">Complete Resume <i class="fas fa-download"></i></a>
   </p>
+  {{end}}
+
+  {{ if .Site.Params.vitae.website }}
+  <p>
+    <a href="{{ .Site.Params.vitae.website_full }}">{{ .Site.Params.vitae.website }}</a>
+  </p>
+  {{ end }}
+
+  {{ if .Site.Params.Social.email }}
   <p>
     <a href="mailto:{{ .Site.Params.social.email }}">{{ .Site.Params.social.email }}</a>
   </p>
+  {{ end }}
+  {{ if .Site.Params.Social.LinkedIn }}
   <p>
-    <a href="http://github.com/{{ .Site.Params.social.github }}"><i class="fa fa-github"></i>&nbsp;Github</a> /
-    <a href="http://twitter.com/{{ .Site.Params.social.twitter }}"><i class="fa fa-twitter"></i>&nbsp;Twitter</a>
+    <a href="https://linkedin.com/in/{{ .Site.Params.Social.LinkedIn }}"><i class="fab fa-linkedin"></i>&nbsp;LinkedIn</a>
   </p>
+  {{ end }}
 </header>

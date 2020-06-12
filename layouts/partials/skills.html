@@ -1,16 +1,20 @@
 {{ with .Site.Data.skills }}
   <section class="thirteen columns">
     <h1>{{ .name }}</h1>
-    <article>
-      <header>
-        <h1>{{ .title }}</h1>
-      </header>
-      {{ range .source }}
-      <p>
-        {{ range $i, $seq := (seq .stars) }}<i class="fa fa-star"></i>{{ end }}{{ range $i, $seq := (seq (sub 5 (int .stars))) }}<i class="fa fa-star-o"></i>{{ end }}
+    {{ range $el:= .domains}}
+      <article>
+        <header>
+          <h1>{{ $el.title }}</h1>
+        </header>
+        {{ range $el.source }}
+        <p>
+          {{ range $i, $seq := (seq .stars) }}<i
+            class="fa fa-star"></i>{{ end }}{{ range $i, $seq := (seq (sub 5 (int .stars))) }}<i
+            class="fa fa-star-o"></i>{{ end }}
           &nbsp;&nbsp;<em>{{ delimit .name "</em>, <em>" "</em> & <em>" }}</em>
-      </p>
-      {{ end }}
-    </article>
+        </p>
+        {{ end }}
+      </article>
+    {{end}}
   </section>
 {{ end }}

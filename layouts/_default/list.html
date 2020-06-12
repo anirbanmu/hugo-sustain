@@ -1,29 +1,92 @@
 {{ partial "head" . }}
   <body>
+
     <div id="wrap">
       <!-- Header -->
       {{ partial "header" . }}
+       {{ if (ne (strings.TrimSuffix "/projects/" .RelPermalink) .RelPermalink) }}
+        <!-- projects -->
+        {{ .Render "projects_template" }}
+      {{ else if (ne (strings.TrimSuffix "/tags/" .RelPermalink) .RelPermalink) }}
+        <!-- tags -->
+        {{ .Render "tags_template" }}
+      {{ else if (ne (strings.TrimSuffix "/categories/" .RelPermalink) .RelPermalink) }}
+        <!-- tags -->
+        {{ .Render "categories_template" }}
+      {{ else if (ne (strings.TrimSuffix "/resume/" .RelPermalink) .RelPermalink) }}
+        <!-- resume -->
+        {{ .Render "vitae" }}
+      {{ else }}
+      <!-- posts/ and other list templates-->
+
       <div class="container">
-        <h3>Archive</h3>
-          <div class="panel panel-default">
-            <div class="panel-body">
-            {{ range .Data.Pages.ByPublishDate.Reverse }}
-              <div class="row">
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                  <h5 style="text-align: right">
-                    {{ .Date.Format "January 2, 2006" }}
-                  </h5>
-                 </div>
-                 <div class="col-sm-8 col-md-8 col-lg-8">
-                   <h5 style="text-align: left">
-                    <strong><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></strong>
-                  </h5>
+
+          <h3 class="row text-center">{{ .Title }}</h3>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-9">
+
+                  <div class="panel panel-default">
+                  <div class="panel-body">
+
+                    {{ range (.Paginator 4).Pages.ByPublishDate.Reverse }}
+                      <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                          <h5 style="text-align: right">
+                            {{ .Date.Format "Jan 2, 2006" }}
+                          </h5>
+                         </div>
+                         <div class="col-sm-8 col-md-8 col-lg-8">
+                           <h5 style="text-align: left">
+                            <strong>
+                              {{if isset .Params "affiliatelink"}}
+                              <a href="{{ .Params.affiliatelink}}" target="_blank">{{ .Title | markdownify}}</a><span>&#8599;</span>
+                              {{else}}
+                              <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+                              {{end}}
+                            </strong>
+                            <br>
+                            {{ range .Params.tags }}
+                            <a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}' class="label">{{ . }}</a>
+                            {{ end }}
+                          </h5>
+                            {{if isset .Params "affiliatelink"}}
+                              {{else}}
+
+                            {{ .Summary }}.... <a href="{{ .RelPermalink }}">Read More</a>
+                            {{end}}
+                          </div>
+                      </div>
+                    {{ end }}
+                <!-- paginator -->
+
                 </div>
               </div>
-            {{ end }}
             </div>
+
+            <div class="hidden-xs col-sm-3 mytags text-center">
+              <h4 div="row">Tags</h4>
+              <div class="row">
+              {{partial "mytags" . }}
+              </div>
+            </div>
+
+
+          </div>
+
+      </div>
+      {{ partial "paginator" . }}
+      <br><br>
+
+      <div class="container hidden-sm hidden-md hidden-lg">
+      <div class=" col-xs-12 mytags text-center">
+          <h4 div="row">Tags</h4>
+          <div class="row">
+          {{partial "mytags" . }}
           </div>
       </div>
+      </div>
+    {{ end }}
     </div>
     <!-- Footer -->
     {{ partial "footer" . }}

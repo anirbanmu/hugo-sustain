@@ -6,9 +6,20 @@ disqusShortname = ""
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = ""
 theme = "hugo-sustain-vitae"
+canonifyURLs = true
+enableRobotsTXT = true
+enableEmoji = true
+pygmentsCodeFences = true
+# Available styles :- https://xyproto.github.io/splash/docs/
+pygmentsStyle = "dracula"
+
+# https://gohugo.io/content-management/taxonomies/
+#generate only "tags" & not "categories" taxonomy
+#[taxonomies]
+#  tag = "tags"
 
 [permalinks]
-  post = "/:year/:month/:day/:slug"
+  blog = "/:year/:month/:day/:slug"
 
 [params]
   avatar = "profile.png"
@@ -54,4 +65,4 @@ theme = "hugo-sustain-vitae"
   name = "resume"
   identifier = "resume"
   weight = 300
-  url = "/vitae/"
+  url = "/resume/"
